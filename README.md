@@ -16,7 +16,7 @@ Methods
 
 &emsp; 1. A Small Scale Neural Network
 
-&emsp; As an initial attempt in simple neural network.ipynb, we extracted 40 mel frequency cepstral coefficients (MFCCs) for each audio file, took them as input X, and fed them into a fully-connected neural network. The resulting accuracy was low, which was only around 0.2, a bit more than random guessing. 
+&emsp; As an initial attempt in [simple_neural_network.ipynb](./simple_neural_network.ipynb), we extracted 40 mel frequency cepstral coefficients (MFCCs) for each audio file, took them as input X, and fed them into a fully-connected neural network. The resulting accuracy was low, which was only around 0.2, a bit more than random guessing. 
 	In order to achieve an improved result, we extracted features from each audio file again by dividing it into segments, so that the input is of shapes: (sample, timesteps, mfcc features). Instead of fitting inputs into the small model, we proceed to use Convolutional Neural Network. 
 
 <p align="center">
@@ -28,9 +28,9 @@ Fig.1 MFCCs for an example file. 13 stripes in this graph represent 13 MFCCs.
 
 &emsp; 2. 2D Convolutional Neural Network
 
-&emsp; In extract_features.ipynb, we splitted each audio file into 10 segments and extracted 13 MFCCs (mel frequency cepstral coefficients) for each of those segments. For each segment, we distributed a label that represents the genre of the music. We created a three dimensional array to store the label and MFCCs and dumped the array to a json file to be used for training.
+&emsp; In [extract_features.ipynb](extract_features.ipynb), we splitted each audio file into 10 segments and extracted 13 MFCCs (mel frequency cepstral coefficients) for each of those segments. For each segment, we distributed a label that represents the genre of the music. We created a three dimensional array to store the label and MFCCs and dumped the array to a json file to be used for training.
 
-&emsp; In CNN.ipynb, we loaded the data from our json file, set our X (input) to be the MFCCs and Y (output) to be the label. We set X to be of shapes: (sample, timesteps, mfcc features), Timesteps is the number of time windows, calculated by the number of samples divided by hop length, each of which indicating the MFCC value in the particular time frame. For each segment we assigned a Y value that represents the genre/label of the segment. Then we did a train test split for our data, we put 60% of the data into training, 15% into validation and 25% into testing
+&emsp; In [CNN_train_and_preds.ipynb](CNN_train_and_preds.ipynb), we loaded the data from our json file, set our X (input) to be the MFCCs and Y (output) to be the label. We set X to be of shapes: (sample, timesteps, mfcc features), Timesteps is the number of time windows, calculated by the number of samples divided by hop length, each of which indicating the MFCC value in the particular time frame. For each segment we assigned a Y value that represents the genre/label of the segment. Then we did a train test split for our data, we put 60% of the data into training, 15% into validation and 25% into testing
 
 &emsp; We added several layers in the convolutional neural network. We set the hidden layers to be Rectified Linear Unit activation functions (ReLU) because it is simple to implement and effective, and specifically, it is less susceptible to vanishing gradients that prevent deep models from being trained. For the output layer we use the softmax activation function because it is a multiple classification problem. Then we use he_normal kernel initialization because it was developed specifically for nodes and layers that use ReLU activation as well as a standard approach for it.
 
