@@ -51,7 +51,11 @@ Discussion
 
 &emsp; Audio can itself be represented as an image (Spectrogram/MFCC). For example in spectrograms, time and frequency are represented as x,y and amplitude as pixel value. We chose CNN model because it is of high accuracy for image classification and recognition. It can recognize textures and timbre in our music files efficiently. For future studies, it will be helpful to compare the performance of other models such as LSTM. 
 
+&emsp; Previous studies had proposed different models and feature extraction methods for music classification. These include training based on Short-time Fourier Transform (STFT), Wavelet Transform (WT), and MFCCs, and some additional parameters were used to obtain feature vectors. The best overall accuracy (74.2%) was achieved when the test was carried out using Wavelet Coefficient Histograms (DWCHs) based on One-Against-All (OAA) approach (Li et al.), trained with middle parts of songs. Instead of using timbral textural and rhythmic content features, it is also worth researching into using different combinations and of different segments of the music.
+
 Reference: 
+
+Li T, Ogihara M, Li Q. A Comparative study on content-based music genre classification. In: Proceedings of the 26th annual international ACM SI-GIR conference on research and development in information retrieval. Toronto: ACM Press; 2003. p. 282–9.
 
 &emsp; Youtube channel-Valerio Velardo - The Sound of AI: 
 https://www.youtube.com/channel/UCZPFjMe1uRSirmSpznqvJfQ
@@ -61,4 +65,5 @@ https://machinelearningmastery.com/choose-an-activation-function-for-deep-learni
 
 &emsp; Why use he_normal for ReLU: 
 https://machinelearningmastery.com/weight-initialization-for-deep-learning-neural-networks/
+
 
